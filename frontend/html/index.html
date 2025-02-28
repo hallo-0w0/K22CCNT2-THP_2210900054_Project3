@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa hàng</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <header class="thp-header">
+        <h1 class="thp-title">Chào mừng đến với cửa hàng văn phòng phẩm</h1>
+        <div class="thp-user-actions">
+            <a href="login.html" class="thp-btn">Đăng Nhập</a>
+            <a href="logout.html" class="thp-btn">Đăng Xuất</a>
+            <a href="#" id="thp-cart-btn" class="thp-btn">🛒 Giỏ Hàng (<span id="thp-cart-count">0</span>)</a>
+        </div>
+    </header>
+
+    <nav class="thp-nav">
+        <ul>
+            <li><a href="#">Trang Chủ</a></li>
+            <li><a href="#">Sản Phẩm</a></li>
+            <li><a href="#">Nhà Cung Cấp</a></li>
+            <li><a href="#">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <main class="thp-main">
+        <section class="thp-products">
+            <h2>Sản Phẩm Nổi Bật</h2>
+            <div class="thp-product-list">
+                <div class="thp-product" data-name="Bút Bi Xanh" data-price="5000">
+                    <img src="pen.jpg" alt="Bút Bi Xanh">
+                    <h3>Bút Bi Xanh</h3>
+                    <p>Giá: 5.000 VNĐ</p>
+                    <button class="thp-add-cart">Thêm Vào Giỏ</button>
+                </div>
+                <div class="thp-product" data-name="Sổ Tay A5" data-price="25000">
+                    <img src="notebook.jpg" alt="Sổ Tay A5">
+                    <h3>Sổ Tay A5</h3>
+                    <p>Giá: 25.000 VNĐ</p>
+                    <button class="thp-add-cart">Thêm Vào Giỏ</button>
+                </div>
+                <div class="thp-product" data-name="Giấy A4 70gsm" data-price="50000">
+                    <img src="paper.jpg" alt="Giấy A4 70gsm">
+                    <h3>Giấy A4 70gsm</h3>
+                    <p>Giá: 50.000 VNĐ</p>
+                    <button class="thp-add-cart">Thêm Vào Giỏ</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="thp-cart-modal">
+        <div class="thp-cart-content">
+            <h2>Giỏ Hàng</h2>
+            <ul id="thp-cart-list"></ul>
+            <p><strong>Tổng Tiền: </strong><span id="thp-cart-total">0</span> VNĐ</p>
+            <button id="thp-close-cart">Đóng</button>
+        </div>
+    </div>
+
+    <footer class="thp-footer">
+        <p>&copy; 2025 THP - Cửa hàng văn phòng phẩmphẩm</p>
+    </footer>
+
+    <script src="../js/index.js"></script>
+</body>
+</html>
