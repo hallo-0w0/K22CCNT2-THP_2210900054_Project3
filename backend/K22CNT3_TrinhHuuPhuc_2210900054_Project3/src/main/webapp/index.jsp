@@ -58,7 +58,7 @@
     <div class="content">
         <c:set var="message" value="Xin chào, JSP!" />
         <p>${message}</p>
-        <a href="/SpringMVCPagination/menu">Đến Menu Chức Năng</a>
+        <a href="/SpringMVCPagination/thpmenu">Đến Menu Chức Năng</a>
     </div>
 
     <div class="footer">

@@ -26,11 +26,15 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="dataSource" ref="db"></property>
 	</bean>
 
-	<bean id="dao" class="com.springmvc.dao.NhanVienDao">
+	<bean id="dao" class="com.springmvc.dao.thpNhanVienDao">
 		<property name="template" ref="jt"></property>
 	</bean>
 	
 	<bean id="sanPhamDao" class="com.springmvc.dao.SanPhamDao">
+	    <property name="template" ref="jt"></property>
+	</bean>
+	
+	<bean id="nhaCungCapDao" class="com.springmvc.dao.NhaCungCapDao">
 	    <property name="template" ref="jt"></property>
 	</bean>
 	

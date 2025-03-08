@@ -108,10 +108,10 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <h2>QUẢN LÝ KHO</h2>
-        <a href="/SpringMVCPagination/menu"><i class="fas fa-home"></i> Dashboard</a>
-        <a href="/SpringMVCPagination/sanpham/view"><i class="fas fa-box"></i> Quản lý Sản Phẩm</a>
-        <a href="#"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
-        <a href="/SpringMVCPagination/nhanvien/view"><i class="fas fa-users"></i> Nhân Viên</a>
+        <a href="/SpringMVCPagination/thpmenu"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/SpringMVCPagination/thpsanpham/thpview"><i class="fas fa-box"></i> Quản lý Sản Phẩm</a>
+        <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
+        <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
         <a href="#"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
         <a href="#"><i class="fas fa-file-export"></i> Phiếu Xuất</a>
         <a href="#"><i class="fas fa-chart-bar"></i> Báo Cáo - Thống Kê</a>
@@ -124,7 +124,7 @@
         <!-- Box thống kê -->
         <div class="row">
             <div class="col-md-4 mb-3">
-                <a href="/SpringMVCPagination/sanpham/view">
+                <a href="/SpringMVCPagination/thpsanpham/thpview">
                     <div class="stat-box">
                         <i class="fas fa-box"></i>
                         <h3 class="text-dark">Tổng Sản Phẩm</h3>
@@ -134,7 +134,7 @@
             </div>
 
             <div class="col-md-4 mb-3">
-                <a href="/SpringMVCPagination/nhacungcap/view">
+                <a href="/SpringMVCPagination/thpnhacungcap/thpview">
                     <div class="stat-box">
                         <i class="fas fa-truck"></i>
                         <h3 class="text-dark">Nhà Cung Cấp</h3>
@@ -144,7 +144,7 @@
             </div>
 
             <div class="col-md-4 mb-3">
-                <a href="/SpringMVCPagination/nhanvien/view">
+                <a href="/SpringMVCPagination/thpnhanvien/thpview">
                     <div class="stat-box">
                         <i class="fas fa-users"></i>
                         <h3 class="text-dark">Nhân Viên</h3>
@@ -154,7 +154,7 @@
             </div>
 
             <div class="col-md-4 mb-3">
-                <a href="/SpringMVCPagination/phieunhap/view">
+                <a href="/SpringMVCPagination/thpphieunhap/thpview">
                     <div class="stat-box">
                         <i class="fas fa-file-import"></i>
                         <h3 class="text-dark">Phiếu Nhập</h3>
@@ -164,7 +164,7 @@
             </div>
 
             <div class="col-md-4 mb-3">
-                <a href="/SpringMVCPagination/phieuxuat/view">
+                <a href="/SpringMVCPagination/thpphieuxuat/thpview">
                     <div class="stat-box">
                         <i class="fas fa-file-export"></i>
                         <h3 class="text-dark">Phiếu Xuất</h3>

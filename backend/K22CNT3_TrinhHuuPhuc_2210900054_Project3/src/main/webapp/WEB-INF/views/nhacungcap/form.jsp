@@ -4,7 +4,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Thêm Nhân Viên</title>
+    <title>Thêm Nhà Cung Cấp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -17,24 +17,24 @@
 
         /* Sidebar */
         .sidebar {
-	    width: 250px;
-	    height: 100vh;
-	    position: fixed;
-	    top: 0;
-	    left: 0;
-	    background: #343a40;
-	    color: white;
-	    padding-top: 20px;
-		}
-		
-		.sidebar h2 {
-		    text-align: center;
-		    font-size: 22px;
-		    margin-bottom: 30px;
-		    color: #ffc107; /* Đồng bộ màu tiêu đề */
-		    font-weight: bold;
-		    letter-spacing: 1px;
-		}
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #343a40;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #ffc107;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
         .sidebar a {
             display: flex;
@@ -84,7 +84,7 @@
             text-align: left;
         }
 
-        input, select {
+        input {
             width: 100%;
             padding: 10px;
             margin: 10px 0 20px;
@@ -138,26 +138,22 @@
 
     <!-- Nội dung chính -->
     <div class="content">
-        <h2>Thêm Nhân Viên</h2>
+        <h2>Thêm Nhà Cung Cấp</h2>
         <form action="save" method="post">
-            
-            <label for="hoTen">Họ Tên:</label>
-            <input type="text" id="hoTen" name="hoTen" required/>
 
-            <label for="phongBan">Phòng Ban:</label>
-            <input type="text" id="phongBan" name="phongBan" required/>
+            <label for="tenNCC">Tên Nhà Cung Cấp:</label>
+            <input type="text" id="tenNCC" name="tenNCC" required/>
 
-            <label for="vaiTro">Vai Trò:</label>
-            <select id="vaiTro" name="vaiTro" required>
-                <option value="NHAN_VIEN">Nhân Viên</option>
-                <option value="NHAN_VIEN_KHO">Nhân Viên Kho</option>
-                <option value="QUAN_LY">Quản Lý</option>
-            </select>
+            <label for="diaChi">Địa Chỉ:</label>
+            <input type="text" id="diaChi" name="diaChi" required/>
+
+            <label for="soDienThoai">Số Điện Thoại:</label>
+            <input type="text" id="soDienThoai" name="soDienThoai" required/>
 
             <input type="submit" value="Lưu"/>
         </form>
 
-        <a href="/SpringMVCPagination/nhanvien/view" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại Danh Sách Nhân Viên</a>
+        <a href="/SpringMVCPagination/nhacungcap/view" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại Danh Sách Nhà Cung Cấp</a>
     </div>
 
 </body>
