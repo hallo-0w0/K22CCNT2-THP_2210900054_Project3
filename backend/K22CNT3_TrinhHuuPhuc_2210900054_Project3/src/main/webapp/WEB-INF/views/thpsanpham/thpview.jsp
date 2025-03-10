@@ -122,12 +122,12 @@
 <body>
     <div class="sidebar">
         <h2>QUẢN LÝ KHO</h2>
-        <a href="/SpringMVCPagination/menu"><i class="fas fa-home"></i> Dashboard</a>
-        <a href="/SpringMVCPagination/sanpham/view"><i class="fas fa-box"></i> Quản lý Sản Phẩm</a>
-        <a href="/SpringMVCPagination/nhacungcap/view"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
-        <a href="/SpringMVCPagination/nhanvien/view"><i class="fas fa-users"></i> Nhân Viên</a>
-        <a href="/SpringMVCPagination/phieunhap/view"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
-        <a href="/SpringMVCPagination/phieuxuat/view"><i class="fas fa-file-export"></i> Phiếu Xuất</a>
+        <a href="/SpringMVCPagination/thpmenu"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/SpringMVCPagination/thpsanpham/thpview"><i class="fas fa-box"></i> Quản lý Sản Phẩm</a>
+        <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
+        <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
+        <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
+        <a href="/SpringMVCPagination/thpphieuxuat/thpview"><i class="fas fa-file-export"></i> Phiếu Xuất</a>
         <a href="#"><i class="fas fa-chart-bar"></i> Báo Cáo - Thống Kê</a>
     </div>
 
@@ -146,23 +146,29 @@
             </tr>
             <c:forEach var="sp" items="${list}">
                 <tr>
-                    <td>${sp.maSP}</td>
-                    <td>${sp.tenSP}</td>
-                    <td>${sp.loaiSP}</td>
-                    <td>${sp.donViTinh}</td>
-                    <td>${sp.giaNhap}</td>
-                    <td>${sp.soLuongTon}</td>
+                    <td>${sp.thpMaSP}</td>
+                    <td>${sp.thpTenSP}</td>
+                    <td>${sp.thpTenLoai}</td>
+                    <td>${sp.thpDonViTinh}</td>
+                    <td>${sp.thpGiaNhap}</td>
+                    <td>${sp.thpSoLuongTon}</td>
                     <td>
-                        <a href="edit/${sp.maSP}"><i class="fas fa-edit"></i> Chỉnh Sửa</a>
-                        <a href="delete/${sp.maSP}" onclick="return confirm('Bạn có chắc muốn xóa?')"><i class="fas fa-trash-alt"></i> Xóa</a>
-                    </td>
+					    <a href="${pageContext.request.contextPath}/thpsanpham/thpedit/${sp.thpMaSP}">
+					        <i class="fas fa-edit"></i> Chỉnh Sửa
+					    </a>
+					    <a href="${pageContext.request.contextPath}/thpsanpham/thpdelete/${sp.thpMaSP}" 
+					       onclick="return confirm('Bạn có chắc muốn xóa?')">
+					        <i class="fas fa-trash-alt"></i> Xóa
+					    </a>
+					</td>
+
                 </tr>
             </c:forEach>
         </table>
 
         <div class="actions">
-            <a href="form"><i class="fas fa-plus"></i> Thêm Sản Phẩm Mới</a>
-            <a href="/SpringMVCPagination/menu"><i class="fas fa-arrow-left"></i> Quay lại Dashboard</a>
+            <a href="thpform"><i class="fas fa-plus"></i> Thêm Sản Phẩm Mới</a>
+            <a href="/SpringMVCPagination/thpmenu"><i class="fas fa-arrow-left"></i> Quay lại Dashboard</a>
         </div>
     </div>
 </body>

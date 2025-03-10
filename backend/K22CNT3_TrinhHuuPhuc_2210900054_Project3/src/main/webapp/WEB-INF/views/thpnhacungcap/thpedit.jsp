@@ -4,7 +4,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Thêm Nhà Cung Cấp</title>
+    <title>Chỉnh Sửa Nhà Cung Cấp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -93,7 +93,7 @@
         }
 
         input[type="submit"] {
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
             border: none;
             cursor: pointer;
@@ -103,7 +103,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
 
         .back-link {
@@ -127,33 +127,34 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <h2>QUẢN LÝ KHO</h2>
-        <a href="/SpringMVCPagination/menu"><i class="fas fa-home"></i> Dashboard</a>
-        <a href="/SpringMVCPagination/sanpham/view"><i class="fas fa-box"></i> Quản lý Sản Phẩm</a>
-        <a href="/SpringMVCPagination/nhacungcap/view"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
-        <a href="/SpringMVCPagination/nhanvien/view"><i class="fas fa-users"></i> Nhân Viên</a>
-        <a href="/SpringMVCPagination/phieunhap/view"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
-        <a href="/SpringMVCPagination/phieuxuat/view"><i class="fas fa-file-export"></i> Phiếu Xuất</a>
+        <a href="/SpringMVCPaginationthp/menu"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/SpringMVCPagination/thpsanpham/thpview"><i class="fas fa-box"></i> Quản lý Sản Phẩm</a>
+        <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
+        <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
+        <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
+        <a href="/SpringMVCPagination/thpphieuxuat/thpview"><i class="fas fa-file-export"></i> Phiếu Xuất</a>
         <a href="#"><i class="fas fa-chart-bar"></i> Báo Cáo - Thống Kê</a>
     </div>
 
     <!-- Nội dung chính -->
     <div class="content">
-        <h2>Thêm Nhà Cung Cấp</h2>
-        <form action="save" method="post">
+        <h2>Chỉnh Sửa Nhà Cung Cấp</h2>
+        <form action="/SpringMVCPagination/thpnhacungcap/thpeditsave" method="post">
+            <input type="hidden" name="thpMaNCC" value="${command.thpMaNCC}" />
 
             <label for="tenNCC">Tên Nhà Cung Cấp:</label>
-            <input type="text" id="tenNCC" name="tenNCC" required/>
+            <input type="text" id="tenNCC" name="thpTenNCC" value="${command.thpTenNCC}" required/>
 
             <label for="diaChi">Địa Chỉ:</label>
-            <input type="text" id="diaChi" name="diaChi" required/>
+            <input type="text" id="diaChi" name="thpDiaChi" value="${command.thpDiaChi}" required/>
 
             <label for="soDienThoai">Số Điện Thoại:</label>
-            <input type="text" id="soDienThoai" name="soDienThoai" required/>
+            <input type="text" id="soDienThoai" name="thpSoDienThoai" value="${command.thpSoDienThoai}" required/>
 
-            <input type="submit" value="Lưu"/>
+            <input type="submit" value="Cập Nhật"/>
         </form>
 
-        <a href="/SpringMVCPagination/nhacungcap/view" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại Danh Sách Nhà Cung Cấp</a>
+        <a href="/SpringMVCPagination/thpnhacungcap/thpview" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại Danh Sách Nhà Cung Cấp</a>
     </div>
 
 </body>

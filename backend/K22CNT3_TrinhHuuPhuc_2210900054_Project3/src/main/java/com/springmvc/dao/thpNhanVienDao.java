@@ -22,43 +22,43 @@ public class thpNhanVienDao {
         this.template = template;
     }
 
-    // 🛠 Chèn nhân viên (tránh lỗi null)
+    // ✅ Chèn nhân viên
     public int save(thpNhanVien nv) {
         String sql = "INSERT INTO thp_NHAN_VIEN (thp_HoTen, thp_PhongBan, thp_VaiTro) VALUES (?, ?, ?)";
         String vaiTro = (nv.getThpVaiTro() != null) ? nv.getThpVaiTro().name() : thpVaiTro.NHAN_VIEN.name();
         return template.update(sql, nv.getThpHoTen(), nv.getThpPhongBan(), vaiTro);
     }
 
-    // 🛠 Cập nhật nhân viên (tránh lỗi null)
+    // ✅ Cập nhật nhân viên
     public int update(thpNhanVien nv) {
         String sql = "UPDATE thp_NHAN_VIEN SET thp_HoTen=?, thp_PhongBan=?, thp_VaiTro=? WHERE thp_MaNV=?";
         String vaiTro = (nv.getThpVaiTro() != null) ? nv.getThpVaiTro().name() : thpVaiTro.NHAN_VIEN.name();
         return template.update(sql, nv.getThpHoTen(), nv.getThpPhongBan(), vaiTro, nv.getThpMaNV());
     }
 
-    // 🛠 Xóa nhân viên
+    // ✅ Xóa nhân viên
     public int delete(int mathpNhanVien) {
         String sql = "DELETE FROM thp_NHAN_VIEN WHERE thp_MaNV=?";
         return template.update(sql, mathpNhanVien);
     }
 
-    // 🛠 Lấy nhân viên theo ID (tránh null)
+    // ✅ Lấy nhân viên theo ID
     public Optional<thpNhanVien> getthpNhanVienById(int mathpNhanVien) {
         String sql = "SELECT * FROM thp_NHAN_VIEN WHERE thp_MaNV=?";
         try {
             return Optional.ofNullable(template.queryForObject(sql, new Object[]{mathpNhanVien}, new thpNhanVienMapper()));
         } catch (Exception e) {
-            return Optional.empty(); // Trả về Optional rỗng thay vì null
+            return Optional.empty();
         }
     }
 
-    // 🛠 Lấy danh sách nhân viên
+    // ✅ Lấy danh sách nhân viên
     public List<thpNhanVien> getAllthpNhanViens() {
         String sql = "SELECT * FROM thp_NHAN_VIEN";
         return template.query(sql, new thpNhanVienMapper());
     }
 
-    // 🛠 Lớp ánh xạ ResultSet sang thpNhanVien (tránh lỗi NullPointerException)
+    // ✅ Lớp ánh xạ ResultSet sang thpNhanVien
     private static class thpNhanVienMapper implements RowMapper<thpNhanVien> {
         @Override
         public thpNhanVien mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -67,7 +67,7 @@ public class thpNhanVienDao {
             nv.setThpHoTen(rs.getString("thp_HoTen"));
             nv.setThpPhongBan(rs.getString("thp_PhongBan"));
             
-            // 🛠 Tránh lỗi NullPointerException
+            // ✅ Tránh lỗi NullPointerException
             String vaiTroStr = rs.getString("thp_VaiTro");
             nv.setThpVaiTro(vaiTroStr != null ? thpVaiTro.fromString(vaiTroStr) : thpVaiTro.NHAN_VIEN);
 

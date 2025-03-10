@@ -8,10 +8,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.springmvc.beans.NhaCungCap;
+import com.springmvc.beans.thpNhaCungCap;
 
 @Repository
-public class NhaCungCapDao {
+public class thpNhaCungCapDao {
     
     @Autowired
     private JdbcTemplate template;
@@ -21,44 +21,44 @@ public class NhaCungCapDao {
     }
 
     // Thêm mới nhà cung cấp
-    public int save(NhaCungCap ncc) {
+    public int save(thpNhaCungCap ncc) {
         String sql = "INSERT INTO thp_NHA_CUNG_CAP (thp_TenNCC, thp_DiaChi, thp_SoDienThoai) VALUES (?, ?, ?)";
-        return template.update(sql, ncc.getTenNCC(), ncc.getDiaChi(), ncc.getSoDienThoai());
+        return template.update(sql, ncc.getThpTenNCC(), ncc.getThpDiaChi(), ncc.getThpSoDienThoai());
     }
 
     // Cập nhật thông tin nhà cung cấp
-    public int update(NhaCungCap ncc) {
+    public int update(thpNhaCungCap ncc) {
         String sql = "UPDATE thp_NHA_CUNG_CAP SET thp_TenNCC=?, thp_DiaChi=?, thp_SoDienThoai=? WHERE thp_MaNCC=?";
-        return template.update(sql, ncc.getTenNCC(), ncc.getDiaChi(), ncc.getSoDienThoai(), ncc.getMaNCC());
+        return template.update(sql, ncc.getThpTenNCC(), ncc.getThpDiaChi(), ncc.getThpSoDienThoai(), ncc.getThpMaNCC());
     }
 
     // Xóa nhà cung cấp theo ID
-    public int delete(int maNCC) {
+    public int delete(int thpMaNCC) {
         String sql = "DELETE FROM thp_NHA_CUNG_CAP WHERE thp_MaNCC=?";
-        return template.update(sql, maNCC);
+        return template.update(sql, thpMaNCC);
     }
 
     // Lấy nhà cung cấp theo ID
-    public NhaCungCap getNhaCungCapById(int maNCC) {
+    public thpNhaCungCap getThpNhaCungCapById(int thpMaNCC) {
         String sql = "SELECT * FROM thp_NHA_CUNG_CAP WHERE thp_MaNCC=?";
         try {
-            return template.queryForObject(sql, new Object[]{maNCC}, new NhaCungCapMapper());
+            return template.queryForObject(sql, new Object[]{thpMaNCC}, new ThpNhaCungCapMapper());
         } catch (Exception e) {
             return null;
         }
     }
 
     // Lấy danh sách tất cả nhà cung cấp
-    public List<NhaCungCap> getAllNhaCungCap() {
+    public List<thpNhaCungCap> getThpAllNhaCungCap() {
         String sql = "SELECT * FROM thp_NHA_CUNG_CAP";
-        return template.query(sql, new NhaCungCapMapper());
+        return template.query(sql, new ThpNhaCungCapMapper());
     }
 
     // Lớp ánh xạ ResultSet sang đối tượng NhaCungCap
-    private static class NhaCungCapMapper implements RowMapper<NhaCungCap> {
+    private static class ThpNhaCungCapMapper implements RowMapper<thpNhaCungCap> {
         @Override
-        public NhaCungCap mapRow(ResultSet rs, int rowNum) throws SQLException {
-            return new NhaCungCap(
+        public thpNhaCungCap mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return new thpNhaCungCap(
                 rs.getInt("thp_MaNCC"),
                 rs.getString("thp_TenNCC"),
                 rs.getString("thp_DiaChi"),

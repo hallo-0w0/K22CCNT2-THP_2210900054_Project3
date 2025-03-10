@@ -10,7 +10,7 @@ public class thpNhanVien {
 
     public thpNhanVien() {
         super();
-        this.thpvaiTro = com.springmvc.enums.thpVaiTro.NHAN_VIEN; // Đặt giá trị mặc định để tránh NullPointerException
+        this.thpvaiTro = com.springmvc.enums.thpVaiTro.NHAN_VIEN; // ✅ Truy cập enum đúng cách
     }
 
     public int getThpMaNV() {
@@ -41,12 +41,11 @@ public class thpNhanVien {
         return thpvaiTro;
     }
 
-    // ✅ Chỉnh sửa phương thức setVaiTro để hỗ trợ cả Enum và String
     public void setThpVaiTro(thpVaiTro thpVaiTro) {
         this.thpvaiTro = thpVaiTro;
     }
 
     public void setThpVaiTro(String thpVaiTro) {
-        this.thpvaiTro = com.springmvc.enums.thpVaiTro.fromString(thpVaiTro); // ✅ Sửa lỗi gọi fromString()
+        this.thpvaiTro = com.springmvc.enums.thpVaiTro.fromString(thpVaiTro); // ✅ Truy cập phương thức static đúng cách
     }
 }
