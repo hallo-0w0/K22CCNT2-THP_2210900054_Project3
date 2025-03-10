@@ -112,8 +112,8 @@
         <a href="/SpringMVCPagination/thpsanpham/thpview"><i class="fas fa-box"></i> Quản lý Sản Phẩm</a>
         <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
         <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
-        <a href="#"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
-        <a href="#"><i class="fas fa-file-export"></i> Phiếu Xuất</a>
+        <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
+        <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-file-export"></i> Phiếu Xuất</a>
         <a href="#"><i class="fas fa-chart-bar"></i> Báo Cáo - Thống Kê</a>
     </div>
 
