@@ -19,6 +19,12 @@ public class thpSanPhamDao {
     public void setTemplate(JdbcTemplate template) {
         this.template = template;
     }
+ // ✅ Cập nhật số lượng sản phẩm tồn kho
+    public int updateSoLuongTon(int thpMaSP, int soLuongNhap) {
+        String sql = "UPDATE thp_SAN_PHAM SET thp_SoLuongTon = thp_SoLuongTon + ? WHERE thp_MaSP = ?";
+        return template.update(sql, soLuongNhap, thpMaSP);
+    }
+
 
     // ✅ Thêm sản phẩm mới
     public int save(thpSanPham sp) {

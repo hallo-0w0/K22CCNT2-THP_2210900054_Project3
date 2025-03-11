@@ -148,20 +148,16 @@
         <h2>Thêm Chi Tiết Phiếu Nhập</h2>
 
         <form action="${pageContext.request.contextPath}/thpchitietphieunhap/save" method="post">
-
+            
             <!-- Giữ nguyên mã phiếu nhập -->
             <input type="hidden" name="thpMaPN" value="${thpMaPN}"/>
 
-            <!-- Mã Sản Phẩm (readonly, cập nhật theo Tên Sản Phẩm) -->
-            <label for="maSP">Mã Sản Phẩm:</label>
-            <input type="text" id="maSP" name="thpMaSP" readonly required/>
-
             <!-- Chọn Tên Sản Phẩm -->
             <label for="tenSP">Tên Sản Phẩm:</label>
-            <select id="tenSP" required>
+            <select id="tenSP" name="thpMaSP" required>
                 <option value="">-- Chọn sản phẩm --</option>
                 <c:forEach var="sp" items="${listSanPham}">
-                    <option value="${sp.thpMaSP}" data-masp="${sp.thpMaSP}">${sp.thpTenSP}</option>
+                    <option value="${sp.thpMaSP}">${sp.thpTenSP}</option>
                 </c:forEach>
             </select>
 
@@ -171,18 +167,10 @@
             <input type="submit" value="Lưu"/>
         </form>
 
-        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview/${thpMaPN}" class="back-link">
+        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview" class="back-link">
             <i class="fas fa-arrow-left"></i> Quay lại Chi Tiết Phiếu Nhập
         </a>
     </div>
-
-    <!-- JavaScript để tự động cập nhật Mã Sản Phẩm -->
-    <script>
-        document.getElementById("tenSP").addEventListener("change", function () {
-            let selectedOption = this.options[this.selectedIndex];
-            document.getElementById("maSP").value = selectedOption.getAttribute("data-masp");
-        });
-    </script>
 
 </body>
 </html>

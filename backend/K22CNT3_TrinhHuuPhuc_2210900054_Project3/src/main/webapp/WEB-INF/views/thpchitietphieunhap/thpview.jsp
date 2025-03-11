@@ -136,7 +136,7 @@
 
     <!-- Nội dung chính -->
     <div class="content">
-        <h2>Danh Sách Chi Tiết Phiếu Nhập</h2>
+        <h2>Danh Sách Chi Tiết Phiếu Nhập (Mã PN: ${thpMaPN})</h2>
 
         <table>
             <tr>
@@ -161,11 +161,11 @@
         </table>
 
         <div class="actions">
-        	<a href="${pageContext.request.contextPath}/thpchitietphieunhap/thpform/${thpMaPN}">
+            <a href="${pageContext.request.contextPath}/thpchitietphieunhap/thpform?thpMaPN=${thpMaPN}">
 			    <i class="fas fa-plus"></i> Thêm Chi Tiết Phiếu Nhập Mới
-			</a>			
-
-            <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-arrow-left"></i>Xem Phiếu Nhập</a>
+			</a>
+           
+            <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-arrow-left"></i> Xem Phiếu Nhập</a>
         </div>
     </div>
 
