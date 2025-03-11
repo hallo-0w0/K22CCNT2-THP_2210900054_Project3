@@ -35,6 +35,7 @@ public class thpNhanVienDao {
         String vaiTro = (nv.getThpVaiTro() != null) ? nv.getThpVaiTro().name() : thpVaiTro.NHAN_VIEN.name();
         return template.update(sql, nv.getThpHoTen(), nv.getThpPhongBan(), vaiTro, nv.getThpMaNV());
     }
+    
 
     // ✅ Xóa nhân viên
     public int delete(int mathpNhanVien) {

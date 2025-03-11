@@ -1,21 +1,23 @@
 package com.springmvc.beans;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 public class thpPhieuNhap {
     private int thpMaPN;
-    private Date thpNgayNhap; // ✅ Giữ nguyên kiểu Date
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // ✅ Chỉ giữ annotation này
+    private Date thpNgayNhap; 
+
     private int thpMaNV;
     private int thpMaNCC;
     
     private String tenNhanVien;
     private String tenNhaCungCap;
 
-    // ✅ Constructor không tham số
     public thpPhieuNhap() {
     }
 
-    // ✅ Constructor có tham số
     public thpPhieuNhap(int thpMaPN, Date thpNgayNhap, int thpMaNV, int thpMaNCC) {
         this.thpMaPN = thpMaPN;
         this.thpNgayNhap = thpNgayNhap;
@@ -23,7 +25,6 @@ public class thpPhieuNhap {
         this.thpMaNCC = thpMaNCC;
     }
 
-    // ✅ Getter & Setter
     public int getThpMaPN() {
         return thpMaPN;
     }

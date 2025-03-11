@@ -131,8 +131,7 @@
         <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
         <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
         <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
-        <a href="/SpringMVCPagination/thpphieuxuat/thpview"><i class="fas fa-file-export"></i> Phiếu Xuất</a>
-        <a href="#"><i class="fas fa-chart-bar"></i> Báo Cáo - Thống Kê</a>
+        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-file-import"></i>Chi Tiết Phiếu Nhập</a>
     </div>
 
     <!-- Nội dung chính -->
@@ -163,7 +162,7 @@
 
         <div class="actions">
             <a href="thpform"><i class="fas fa-plus"></i> Thêm Phiếu Nhập Mới</a>
-            <a href="/SpringMVCPagination/thpmenu"><i class="fas fa-arrow-left"></i> Quay lại Dashboard</a>
+            <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-arrow-right"></i>Xem chi tiết phiếu nhập</a>
         </div>
     </div>
 

@@ -140,8 +140,7 @@
         <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
         <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
         <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
-        <a href="/SpringMVCPagination/thpphieuxuat/thpview"><i class="fas fa-file-export"></i> Phiếu Xuất</a>
-        <a href="#"><i class="fas fa-chart-bar"></i> Báo Cáo - Thống Kê</a>
+        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-file-import"></i>Chi Tiết Phiếu Nhập</a>
     </div>
 
     <!-- Nội dung chính -->
@@ -156,7 +155,9 @@
         <form action="${pageContext.request.contextPath}/thpphieunhap/save" method="post">
 
             <label for="ngayNhap">Ngày Nhập:</label>
-            <input type="date" id="ngayNhap" name="thpNgayNhap" value="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" required/>
+            <input type="date" id="ngayNhap" name="thpNgayNhap" value="${currentDate}" required/>
+
+
 
             <label for="maNV">Nhân Viên Nhập:</label>
             <select id="maNV" name="thpMaNV" required>
@@ -177,6 +178,17 @@
 
         <a href="/SpringMVCPagination/thpphieunhap/thpview" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại Danh Sách Phiếu Nhập</a>
     </div>
+
+    <script>
+        // Set ngày mặc định là hôm nay nếu không có giá trị
+        document.addEventListener("DOMContentLoaded", function () {
+            let ngayNhap = document.getElementById("ngayNhap");
+            if (!ngayNhap.value) {
+                let today = new Date().toISOString().split("T")[0];
+                ngayNhap.value = today;
+            }
+        });
+    </script>
 
 </body>
 </html>

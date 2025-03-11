@@ -4,7 +4,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Thêm Nhà Cung Cấp</title>
+    <title>Danh Sách Chi Tiết Phiếu Nhập</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -68,57 +68,56 @@
             margin-bottom: 20px;
         }
 
-        form {
-            background: white;
-            padding: 30px;
-            width: 60%;
-            margin: auto;
+        table {
+            width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: #fff;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
         }
 
-        label {
-            font-weight: bold;
-            margin-top: 10px;
-            display: block;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
             text-align: left;
         }
 
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        input[type="submit"] {
-            background-color: #28a745;
+        th {
+            background-color: #007bff;
             color: white;
-            border: none;
-            cursor: pointer;
-            padding: 12px 20px;
-            font-size: 16px;
-            width: 100%;
         }
 
-        input[type="submit"]:hover {
-            background-color: #218838;
-        }
-
-        .back-link {
-            display: block;
-            margin: 20px auto;
-            width: fit-content;
-            background-color: #6c757d;
-            padding: 10px 20px;
+        td a {
+            background-color: #007bff;
             color: white;
             text-decoration: none;
+            padding: 6px 10px;
             border-radius: 5px;
+            margin-right: 5px;
+            display: inline-block;
         }
 
-        .back-link:hover {
-            background-color: #5a6268;
+        td a:hover {
+            background-color: #0056b3;
+        }
+
+        .actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .actions a {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .actions a:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -132,27 +131,42 @@
         <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
         <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
         <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
-        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-file-export"></i>Chi Tiết Phiếu Nhập</a>
+        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-file-import"></i> Chi Tiết Phiếu Nhập</a>
     </div>
 
     <!-- Nội dung chính -->
     <div class="content">
-        <h2>Thêm Nhà Cung Cấp</h2>
-        <form action="save" method="post">
+        <h2>Danh Sách Chi Tiết Phiếu Nhập</h2>
 
-            <label for="tenNCC">Tên Nhà Cung Cấp:</label>
-            <input type="text" id="tenNCC" name="thpTenNCC" required/>
+        <table>
+            <tr>
+                <th>Mã Phiếu Nhập</th>
+                <th>Mã Sản Phẩm</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Số Lượng Nhập</th>
+                <th>Hành Động</th>
+            </tr>
+            <c:forEach var="ctpn" items="${list}">
+                <tr>
+                    <td>${ctpn.thpMaPN}</td>
+                    <td>${ctpn.thpMaSP}</td>
+                    <td>${ctpn.thpTenSP}</td>
+                    <td>${ctpn.thpSoLuongNhap}</td>
+                    <td>
+                        <a href="/SpringMVCPagination/thpchitietphieunhap/thpedit/${ctpn.thpMaPN}/${ctpn.thpMaSP}"><i class="fas fa-edit"></i> Chỉnh Sửa</a>
+                        <a href="/SpringMVCPagination/thpchitietphieunhap/thpdelete/${ctpn.thpMaPN}/${ctpn.thpMaSP}" onclick="return confirm('Bạn có chắc muốn xóa?')"><i class="fas fa-trash-alt"></i> Xóa</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
 
-            <label for="diaChi">Địa Chỉ:</label>
-            <input type="text" id="diaChi" name="thpDiaChi" required/>
+        <div class="actions">
+        	<a href="${pageContext.request.contextPath}/thpchitietphieunhap/thpform/${thpMaPN}">
+			    <i class="fas fa-plus"></i> Thêm Chi Tiết Phiếu Nhập Mới
+			</a>			
 
-            <label for="soDienThoai">Số Điện Thoại:</label>
-            <input type="text" id="soDienThoai" name="thpSoDienThoai" required/>
-
-            <input type="submit" value="Lưu"/>
-        </form>
-
-        <a href="/SpringMVCPagination/thpnhacungcap/thpview" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại Danh Sách Nhà Cung Cấp</a>
+            <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-arrow-left"></i>Xem Phiếu Nhập</a>
+        </div>
     </div>
 
 </body>

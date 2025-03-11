@@ -4,7 +4,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Thêm Nhân Viên</title>
+    <title>Thêm Chi Tiết Phiếu Nhập</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -17,24 +17,24 @@
 
         /* Sidebar */
         .sidebar {
-	    width: 250px;
-	    height: 100vh;
-	    position: fixed;
-	    top: 0;
-	    left: 0;
-	    background: #343a40;
-	    color: white;
-	    padding-top: 20px;
-		}
-		
-		.sidebar h2 {
-		    text-align: center;
-		    font-size: 22px;
-		    margin-bottom: 30px;
-		    color: #ffc107; /* Đồng bộ màu tiêu đề */
-		    font-weight: bold;
-		    letter-spacing: 1px;
-		}
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #343a40;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #ffc107;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
         .sidebar a {
             display: flex;
@@ -120,6 +120,14 @@
         .back-link:hover {
             background-color: #5a6268;
         }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -132,36 +140,49 @@
         <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
         <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
         <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
-        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-file-export"></i>Chi Tiết Phiếu Nhập</a>
+        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-file-import"></i> Chi Tiết Phiếu Nhập</a>
     </div>
 
-    <!-- Nội dung chính -->
+     <!-- Nội dung chính -->
     <div class="content">
-        <h2>Thêm Nhân Viên</h2>
-        <form action="save" method="post">
+        <h2>Thêm Chi Tiết Phiếu Nhập</h2>
 
-		    <label for="thphoTen">Họ Tên:</label>
-		    <input type="text" id="thphoTen" name="thpHoTen" value="${command.thpHoTen}" required/>
-		
-		    <label for="thpphongBan">Phòng Ban:</label>
-		    <input type="text" id="thpphongBan" name="thpPhongBan" value="${command.thpPhongBan}" required/>
-		
-		    <label for="thpvaiTro">Vai Trò:</label>
-		    <select id="thpvaiTro" name="thpVaiTro" required>
-		        <c:forEach var="role" items="${vaiTroList}">
-		            <option value="${role.name()}"
-		                ${command.thpVaiTro != null && command.thpVaiTro.name() == role.name() ? 'selected' : ''}>
-		                ${role.getValue()}
-		            </option>
-		        </c:forEach>
-		    </select>
-		
-		    <input type="submit" value="Lưu"/>
-		</form>
+        <form action="${pageContext.request.contextPath}/thpchitietphieunhap/save" method="post">
 
+            <!-- Giữ nguyên mã phiếu nhập -->
+            <input type="hidden" name="thpMaPN" value="${thpMaPN}"/>
 
-        <a href="/SpringMVCPagination/thpnhanvien/thpview" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại Danh Sách Nhân Viên</a>
+            <!-- Mã Sản Phẩm (readonly, cập nhật theo Tên Sản Phẩm) -->
+            <label for="maSP">Mã Sản Phẩm:</label>
+            <input type="text" id="maSP" name="thpMaSP" readonly required/>
+
+            <!-- Chọn Tên Sản Phẩm -->
+            <label for="tenSP">Tên Sản Phẩm:</label>
+            <select id="tenSP" required>
+                <option value="">-- Chọn sản phẩm --</option>
+                <c:forEach var="sp" items="${listSanPham}">
+                    <option value="${sp.thpMaSP}" data-masp="${sp.thpMaSP}">${sp.thpTenSP}</option>
+                </c:forEach>
+            </select>
+
+            <label for="soLuongNhap">Số Lượng Nhập:</label>
+            <input type="number" id="soLuongNhap" name="thpSoLuongNhap" min="1" required/>
+
+            <input type="submit" value="Lưu"/>
+        </form>
+
+        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview/${thpMaPN}" class="back-link">
+            <i class="fas fa-arrow-left"></i> Quay lại Chi Tiết Phiếu Nhập
+        </a>
     </div>
+
+    <!-- JavaScript để tự động cập nhật Mã Sản Phẩm -->
+    <script>
+        document.getElementById("tenSP").addEventListener("change", function () {
+            let selectedOption = this.options[this.selectedIndex];
+            document.getElementById("maSP").value = selectedOption.getAttribute("data-masp");
+        });
+    </script>
 
 </body>
 </html>

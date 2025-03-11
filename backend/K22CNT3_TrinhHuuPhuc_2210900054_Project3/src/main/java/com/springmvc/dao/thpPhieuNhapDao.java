@@ -36,7 +36,7 @@ public class thpPhieuNhapDao {
         String sql = "SELECT pn.*, nv.thp_HoTen AS tenNhanVien, ncc.thp_TenNCC AS tenNhaCungCap " +
                      "FROM thp_PHIEU_NHAP pn " +
                      "LEFT JOIN thp_NHAN_VIEN nv ON pn.thp_MaNV = nv.thp_MaNV " +
-                     "LEFT JOIN thp_NHA_CUNG_CAP ncc ON pn.thp_MaNCC = ncc.thp_MaNCC " +
+                     "LEFT JOIN thp_NHA_CUNG_Cap ncc ON pn.thp_MaNCC = ncc.thp_MaNCC " +
                      "WHERE pn.thp_MaPN = ?";
         try {
             return template.queryForObject(sql, new Object[]{thpMaPN}, new ThpPhieuNhapMapper());
@@ -49,14 +49,9 @@ public class thpPhieuNhapDao {
     // ✅ Thêm mới Phiếu Nhập
     public int save(thpPhieuNhap phieuNhap) {
         String sql = "INSERT INTO thp_PHIEU_NHAP (thp_NgayNhap, thp_MaNV, thp_MaNCC) VALUES (?, ?, ?)";
-        try {
-            Date sqlDate = new Date(phieuNhap.getThpNgayNhap().getTime()); 
-            return template.update(sql, sqlDate, phieuNhap.getThpMaNV(), phieuNhap.getThpMaNCC());
-        } catch (Exception e) {
-            System.err.println("Lỗi khi thêm Phiếu Nhập: " + e.getMessage());
-            return 0;
-        }
+        return template.update(sql, phieuNhap.getThpNgayNhap(), phieuNhap.getThpMaNV(), phieuNhap.getThpMaNCC());
     }
+
 
     // ✅ Cập nhật Phiếu Nhập
     public int update(thpPhieuNhap phieuNhap) {
