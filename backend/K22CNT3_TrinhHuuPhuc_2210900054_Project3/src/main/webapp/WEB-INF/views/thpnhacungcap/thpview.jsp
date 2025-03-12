@@ -4,7 +4,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Danh Sách Tài Khoản</title>
+    <title>Danh Sách Nhà Cung Cấp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -31,7 +31,7 @@
             text-align: center;
             font-size: 22px;
             margin-bottom: 30px;
-            color: #ffc107;
+            color: #ffc107; /* Đồng bộ màu tiêu đề */
             font-weight: bold;
             letter-spacing: 1px;
         }
@@ -138,45 +138,36 @@
 	    <a href="http://localhost:8080/SpringMVCPagination/" class="back-home">
 	        <i class="fas fa-arrow-left"></i> Quay Lại Trang Chủ
 	    </a>
-	</div>
+	</div>	
 
     <!-- Nội dung chính -->
     <div class="content">
-        <h2>Danh Sách Tài Khoản</h2>
+        <h2>Danh Sách Nhà Cung Cấp</h2>
 
         <table>
             <tr>
-                <th>Mã Tài Khoản</th>
-                <th>Tên Đăng Nhập</th>
-                <th>Mật Khẩu</th>
-                <th>Nhân Viên</th>
+                <th>Mã Nhà Cung Cấp</th>
+                <th>Tên Nhà Cung Cấp</th>
+                <th>Địa Chỉ</th>
+                <th>Số Điện Thoại</th>
                 <th>Hành Động</th>
             </tr>
-            <c:forEach var="tk" items="${list}">
+            <c:forEach var="ncc" items="${list}">
                 <tr>
-                    <td>${tk.thpMaTK}</td>
-                    <td>${tk.thpTenDangNhap}</td>
-                    <td>********</td> <!-- Ẩn mật khẩu để bảo mật -->
+                    <td>${ncc.thpMaNCC}</td>
+                    <td>${ncc.thpTenNCC}</td>
+                    <td>${ncc.thpDiaChi}</td>
+                    <td>${ncc.thpSoDienThoai}</td>
                     <td>
-                        <c:choose>
-                            <c:when test="${tk.thpNhanVien != null}">
-                                ${tk.thpNhanVien.thpHoTen}
-                            </c:when>
-                            <c:otherwise>
-                                <i>Không có nhân viên</i>
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                    <td>
-                        <a href="thpedit/${tk.thpMaTK}"><i class="fas fa-edit"></i> Chỉnh Sửa</a>
-                        <a href="thpdelete/${tk.thpMaTK}" onclick="return confirm('Bạn có chắc muốn xóa?')"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        <a href="thpedit/${ncc.thpMaNCC}"><i class="fas fa-edit"></i> Chỉnh Sửa</a>
+                        <a href="thpdelete/${ncc.thpMaNCC}" onclick="return confirm('Bạn có chắc muốn xóa?')"><i class="fas fa-trash-alt"></i> Xóa</a>
                     </td>
                 </tr>
             </c:forEach>
         </table>
 
         <div class="actions">
-            <a href="thpform"><i class="fas fa-plus"></i> Thêm Tài Khoản Mới</a>
+            <a href="thpform"><i class="fas fa-plus"></i> Thêm Nhà Cung Cấp Mới</a>
             <a href="/SpringMVCPagination/thpmenu"><i class="fas fa-arrow-left"></i> Quay lại Dashboard</a>
         </div>
     </div>

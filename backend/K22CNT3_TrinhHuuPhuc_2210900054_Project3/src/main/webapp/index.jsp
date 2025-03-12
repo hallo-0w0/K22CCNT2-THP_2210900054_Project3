@@ -1,143 +1,116 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ - Cửa Hàng Văn Phòng Phẩm</title>
-
-    <!-- Bootstrap -->
+    <title>Quản lý Cửa hàng Văn phòng phẩm</title>
+    
+    <!-- Thêm Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+    
     <style>
         body {
             font-family: 'Roboto', Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #f4f6f9;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Đảm bảo chiều cao tối thiểu là 100% màn hình */
         }
 
-        /* Header */
-        .thp-header {
-            background: linear-gradient(90deg, #3498db, #2c3e50);
-            padding: 15px 0;
-            color: white;
+        .header {
+            background: linear-gradient(to right, #007bff, #6610f2);
+            color: #fff;
             text-align: center;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        .thp-header .nav {
+        .content {
+            flex: 1; /* Đẩy footer xuống dưới nếu nội dung không đủ dài */
+            padding: 30px;
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .content h2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            gap: 15px; /* Khoảng cách giữa các nút */
+            margin-top: 20px;
         }
 
-        .thp-header .nav li {
-            display: inline;
-        }
-
-        .thp-header .nav a {
-            color: white;
+        .btn-custom {
+            color: #fff;
+            background: linear-gradient(to right, #28a745, #20c997);
+            padding: 12px 30px;
+            border-radius: 8px;
             text-decoration: none;
-            font-size: 18px;
             font-weight: bold;
-            transition: 0.3s;
-            padding: 10px;
-        }
-
-        .thp-header .nav a:hover {
-            color: #f1c40f;
-        }
-
-        /* Nội dung chính */
-        .thp-content {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .thp-content h2 {
-            color: #3498db;
-            font-weight: bold;
-        }
-
-        .thp-content p {
             font-size: 18px;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .thp-content .thp-btn {
+            transition: background 0.3s, transform 0.2s;
             display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 12px 25px;
-            font-size: 18px;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .thp-content .thp-btn:hover {
-            background: #2980b9;
-        }
-
-        /* Footer */
-        .thp-footer {
-            background: #2c3e50;
-            color: white;
-            padding: 15px;
-            margin-top: 30px;
-            font-size: 14px;
             text-align: center;
+            min-width: 150px; /* Giữ kích thước nút đồng đều */
+        }
+
+        .btn-custom:hover {
+            background: linear-gradient(to right, #218838, #17a2b8);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: linear-gradient(to right, #343a40, #6c757d);
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto; /* Đẩy footer xuống dưới cùng */
+            width: 100%;
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Quản lý Cửa hàng Văn phòng phẩm</h1>
+    </div>
 
-    <!-- Header -->
-    <header class="thp-header">
-        <h1 class="thp-title">Chào mừng đến với cửa hàng văn phòng phẩm</h1>
-        <nav>
-            <ul class="nav">
-                <li><a href="#">Trang Chủ</a></li>
-                <li><a href="#">Sản Phẩm</a></li>
-                <li><a href="#">Liên Hệ</a></li>
-                <li><a href="/SpringMVCPagination/thpmenu"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="content">
+        <h2>Chào mừng!</h2>
+        <c:set var="message" value="Chào mừng bạn đến với hệ thống quản lý cửa hàng!" />
+        <p>${message}</p>
 
-    <!-- Nội dung chính -->
-    <section class="thp-content">
-        <h2>Về Chúng Tôi</h2>
-        <p>
-            Cửa hàng văn phòng phẩm của chúng tôi chuyên cung cấp các sản phẩm chất lượng cao dành cho văn phòng, trường học và cá nhân. 
-            Với hơn 10 năm kinh nghiệm trong lĩnh vực này, chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng tốt nhất với giá cả hợp lý.
-        </p>
-        <p>
-            Tại đây, bạn có thể tìm thấy nhiều loại sản phẩm như: bút viết, sổ tay, giấy in, dụng cụ văn phòng và nhiều mặt hàng khác. Chúng tôi không chỉ cung cấp sản phẩm 
-            mà còn hỗ trợ khách hàng lựa chọn các mặt hàng phù hợp với nhu cầu sử dụng. Với hệ thống quản lý kho hàng hiện đại, chúng tôi đảm bảo hàng hóa luôn có sẵn 
-            và giao hàng nhanh chóng.
-        </p>
-        <p>
-            Nếu bạn cần thêm thông tin, hãy truy cập mục **Sản phẩm** để xem các mặt hàng đang có, hoặc liên hệ với chúng tôi qua mục **Liên hệ**. Chúng tôi luôn sẵn sàng hỗ trợ!
-        </p>
-    </section>
+        <!-- Nhóm các nút vào một div để căn giữa và tạo khoảng cách hợp lý -->
+        <div class="btn-group">
+            <a href="/SpringMVCPagination/thpmenu" class="btn-custom">Vào Hệ Thống</a>
+            <a href="http://127.0.0.1:5500/frontend/html/index.html" class="btn-custom">Quay lại</a>
+        </div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="thp-footer">
-        <p>&copy; 2025 Cửa Hàng Văn Phòng Phẩm. Thiết kế bởi Trịnh Hữu Phúc.</p>
-    </footer>
-
+    <div class="footer">
+        <p>&copy; 2025 Quản lý Cửa hàng Văn phòng phẩm. All rights reserved.</p>
+    </div>
 </body>
 </html>
