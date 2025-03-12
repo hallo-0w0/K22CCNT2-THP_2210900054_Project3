@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ</title>
+    <link rel="stylesheet" href="../css/LienHe.css">
+</head>
+<body>
+    <header class="thp-header">
+        <h1 class="thp-title">Cửa hàng văn phòng phẩm</h1>
+        <div class="thp-user-actions">
+            <a href="login.html" class="thp-btn">Đăng Nhập</a>
+            <a href="#" id="thp-cart-btn" class="thp-btn">🛒 Giỏ Hàng (<span id="thp-cart-count">0</span>)</a>
+        </div>
+    </header>
+
+    <nav class="thp-nav">
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="SanPham.html">Sản Phẩm</a></li>
+            <li><a href="LienHe.html">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <main class="thp-main">
+        <section class="thp-contact">
+            <h2>Liên Hệ Chúng Tôi</h2>
+            <form action="#" method="POST" class="thp-contact-form">
+                <label for="name">Họ và Tên:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Nội dung:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit" class="thp-btn">Gửi Tin Nhắn</button>
+            </form>
+        </section>
+    </main>
+    <div id="thp-cart-modal">
+        <div class="thp-cart-content">
+            <h2>Giỏ Hàng</h2>
+            <ul id="thp-cart-list"></ul>
+            <p><strong>Tổng Tiền: </strong><span id="thp-cart-total">0</span> VNĐ</p>
+            <button id="thp-close-cart">Đóng</button>
+        </div>
+    </div>
+    
+
+    <footer class="thp-footer">
+        <p>&copy; 2025 THP - Cửa hàng văn phòng phẩm</p>
+    </footer>
+    <script src="../js/javascrip.js"></script>
+</body>
+</html>

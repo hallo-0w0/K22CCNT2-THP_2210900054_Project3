@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <header class="thp-header">
+        <h1 class="thp-title">Chào mừng đến với cửa hàng văn phòng phẩm</h1>
+        <div class="thp-user-actions">
+            <a href="login.html" class="thp-btn">Đăng Nhập</a>
+            <a href="#" id="thp-cart-btn" class="thp-btn">🛒 Giỏ Hàng (<span id="thp-cart-count">0</span>)</a>
+        </div>
+    </header>
+
+    <nav class="thp-nav">
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="SanPham.html">Sản Phẩm</a></li>
+            <li><a href="LienHe.html">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <main class="thp-main">
+        <section class="thp-admin-link">
+            <p>Quản lý cửa hàng? Truy cập ngay:</p>
+            <a href="http://localhost:8080/SpringMVCPagination/">Vào trang quản lý cửa hàng</a>
+        </section>
+    </main>
+    <div id="thp-cart-modal">
+        <div class="thp-cart-content">
+            <h2>Giỏ Hàng</h2>
+            <ul id="thp-cart-list"></ul>
+            <p><strong>Tổng Tiền: </strong><span id="thp-cart-total">0</span> VNĐ</p>
+            <button id="thp-close-cart">Đóng</button>
+        </div>
+    </div>
+    
+
+    <footer class="thp-footer">
+        <p>&copy; 2025 THP - Cửa hàng văn phòng phẩm</p>
+    </footer>
+    <script src="../js/javascrip.js"></script>
+</body>
+</html>
