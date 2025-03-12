@@ -49,5 +49,9 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	    <property name="template" ref="jt"></property>
 	</bean>
 	
+	<bean id="taiKhoanDao" class="com.springmvc.dao.thpTaiKhoanDao">
+	    <property name="template" ref="jt"></property>
+	</bean>
+		
 	
 </beans>

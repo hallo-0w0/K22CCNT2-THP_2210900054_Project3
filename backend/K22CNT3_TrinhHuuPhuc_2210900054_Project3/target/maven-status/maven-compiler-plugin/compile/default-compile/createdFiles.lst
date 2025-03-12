@@ -1,1 +1,6 @@
-com\springmvc\dao\NhanVienDao$1.class
+com\springmvc\dao\thpLoaiSanPhamDao$1.class
+com\springmvc\dao\thpChiTietPhieuNhapDao$1.class
+com\springmvc\dao\thpNhaCungCapDao$1.class
+com\springmvc\dao\thpPhieuNhapDao$1.class
+com\springmvc\dao\thpNhanVienDao$1.class
+com\springmvc\dao\thpSanPhamDao$1.class
