@@ -104,8 +104,7 @@
 
         <!-- Nhóm các nút vào một div để căn giữa và tạo khoảng cách hợp lý -->
         <div class="btn-group">
-            <a href="/SpringMVCPagination/thpmenu" class="btn-custom">Vào Hệ Thống</a>
-            <a href="http://127.0.0.1:5500/frontend/html/index.html" class="btn-custom">Quay lại</a>
+            <a href="/SpringMVCPagination/thplogin/thpview" class="btn-custom">Vào Hệ Thống</a>
         </div>
     </div>
 

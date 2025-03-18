@@ -135,10 +135,19 @@
 	    <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-file-export"></i> Chi Tiết Phiếu Nhập</a>
 	    <a href="/SpringMVCPagination/thptaikhoan/thpview"><i class="fas fa-user"></i> Quản lý Tài Khoản</a>
 	
-	    <!-- Quay lại trang chủ -->
-	    <a href="http://localhost:8080/SpringMVCPagination/" class="back-home">
-	        <i class="fas fa-arrow-left"></i> Quay Lại Trang Chủ
-	    </a>
+	   <!-- Kiểm tra trạng thái đăng nhập -->
+        <%
+            if (session.getAttribute("loggedUser") != null) {
+        %>
+            <a href="${pageContext.request.contextPath}/thplogin/thplogout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+        <%
+            } else {
+        %>
+            <a href="${pageContext.request.contextPath}/thplogin/thpview"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+        <%
+            }
+        %>
+
 	</div>
 
     <!-- Nội dung chính -->

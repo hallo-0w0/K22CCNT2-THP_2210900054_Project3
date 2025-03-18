@@ -16,29 +16,24 @@
             margin: 0;
             padding: 0;
         }
-
-        /* Sidebar */
         .sidebar {
-	    width: 250px;
-	    height: 100vh;
-	    position: fixed;
-	    top: 0;
-	    left: 0;
-	    background: #343a40;
-	    color: white;
-	    padding-top: 20px;
-		}
-		
-		.sidebar h2 {
-		    text-align: center;
-		    font-size: 22px;
-		    margin-bottom: 30px;
-		    color: #ffc107; /* Đồng bộ màu tiêu đề */
-		    font-weight: bold;
-		    letter-spacing: 1px;
-		}
-
-
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #343a40;
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar h2 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #ffc107;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
         .sidebar a {
             display: flex;
             align-items: center;
@@ -48,29 +43,22 @@
             color: white;
             transition: background 0.3s;
         }
-
         .sidebar a:hover {
             background: #575d63;
         }
-
         .sidebar a i {
             margin-right: 10px;
         }
-
-        /* Nội dung chính */
         .content {
             margin-left: 260px;
             padding: 20px;
         }
-
         .dashboard-title {
             text-align: center;
             font-size: 26px;
             font-weight: bold;
             margin-bottom: 20px;
         }
-
-        /* Box thống kê */
         .stat-box {
             background: white;
             padding: 20px;
@@ -78,24 +66,19 @@
             text-align: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-
         .stat-box i {
             font-size: 40px;
             color: #007bff;
         }
-
         .stat-box h3 {
             margin-top: 10px;
             font-size: 22px;
         }
-
         .stat-box p {
             font-size: 18px;
             font-weight: bold;
             color: #333;
         }
-
-        /* Link dạng block */
         .stat-box a {
             text-decoration: none;
             color: inherit;
@@ -106,21 +89,30 @@
 <body>
 
    <div class="sidebar">
-	    <h2>QUẢN LÝ Cửa Hàng Văn Phòng Phẩm</h2>
-	    <a href="/SpringMVCPagination/thpmenu"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-	    <a href="/SpringMVCPagination/thpsanpham/thpview"><i class="fas fa-box"></i> Quản lý Sản Phẩm</a>
-	    <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
-	    <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
-	    <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
-	    <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-file-export"></i> Chi Tiết Phiếu Nhập</a>
-	    <a href="/SpringMVCPagination/thptaikhoan/thpview"><i class="fas fa-user"></i> Quản lý Tài Khoản</a>
-	
-	    <!-- Quay lại trang chủ -->
-	    <a href="http://localhost:8080/SpringMVCPagination/" class="back-home">
-	        <i class="fas fa-arrow-left"></i> Quay Lại Trang Chủ
-	    </a>
-	</div>
+        <h2>QUẢN LÝ Cửa Hàng Văn Phòng Phẩm</h2>
+        <a href="/SpringMVCPagination/thpmenu"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="/SpringMVCPagination/thpsanpham/thpview"><i class="fas fa-box"></i> Quản lý Sản Phẩm</a>
+        <a href="/SpringMVCPagination/thpnhacungcap/thpview"><i class="fas fa-truck"></i> Nhà Cung Cấp</a>
+        <a href="/SpringMVCPagination/thpnhanvien/thpview"><i class="fas fa-users"></i> Nhân Viên</a>
+        <a href="/SpringMVCPagination/thpphieunhap/thpview"><i class="fas fa-file-import"></i> Phiếu Nhập</a>
+        <a href="/SpringMVCPagination/thpchitietphieunhap/thpview"><i class="fas fa-file-export"></i> Chi Tiết Phiếu Nhập</a>
+        <a href="/SpringMVCPagination/thptaikhoan/thpview"><i class="fas fa-user"></i> Quản lý Tài Khoản</a>
 
+        <!-- Kiểm tra trạng thái đăng nhập -->
+        <%
+            if (session.getAttribute("loggedUser") != null) {
+        %>
+            <a href="${pageContext.request.contextPath}/thplogin/thplogout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+        <%
+            } else {
+        %>
+            <a href="${pageContext.request.contextPath}/thplogin/thpview"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+        <%
+            }
+        %>
+
+        
+    </div>
 
     <!-- Nội dung chính -->
     <div class="content">
