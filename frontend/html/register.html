@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Nhập</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" href="../css/register.css">
 </head>
 <body>
     <header class="thp-header">
@@ -25,16 +25,6 @@
 
     <main class="thp-main">
         <section class="thp-admin-link">
-            <p>Đăng Nhập</p>
-            <form id="thp-login-form">
-                <input type="text" id="thp-username" placeholder="Tên đăng nhập" required>
-                <input type="password" id="thp-password" placeholder="Mật khẩu" required>
-                <button type="submit">Đăng Nhập</button>
-            </form>
-            <p>Chưa có tài khoản? <a href="register.html" id="thp-show-register">Đăng Ký</a></p>
-        </section>
-    
-        <section class="thp-admin-link" id="thp-register-section" style="display: none;">
             <p>Đăng Ký</p>
             <form id="thp-register-form">
                 <input type="text" id="thp-new-username" placeholder="Tên đăng nhập" required>
@@ -42,19 +32,9 @@
                 <input type="password" id="thp-new-password" placeholder="Mật khẩu" required>
                 <button type="submit">Đăng Ký</button>
             </form>
-            <p>Đã có tài khoản? <a href="#" id="thp-show-login">Đăng Nhập</a></p>
+            <p>Đã có tài khoản? <a href="login.html">Đăng Nhập</a></p>
         </section>
     </main>
-    
-    <div id="thp-cart-modal">
-        <div class="thp-cart-content">
-            <h2>Giỏ Hàng</h2>
-            <ul id="thp-cart-list"></ul>
-            <p><strong>Tổng Tiền: </strong><span id="thp-cart-total">0</span> VNĐ</p>
-            <button id="thp-close-cart">Đóng</button>
-        </div>
-    </div>
-    
 
     <footer class="thp-footer">
         <p>&copy; 2025 THP - Cửa hàng văn phòng phẩm</p>

@@ -1,0 +1,31 @@
+@import url("login.css"); /* Kế thừa giao diện từ login.css */
+
+/* ====== Form Đăng Ký ====== */
+.thp-admin-link form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.thp-admin-link input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.thp-admin-link button {
+    padding: 12px;
+    background-color: navy;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.thp-admin-link button:hover {
+    background-color: #0073e6;
+}
